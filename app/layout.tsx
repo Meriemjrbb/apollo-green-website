@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import ThemeProvider from "@/components/ThemeProvider";
 import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
 import { MotionProvider } from "@/components/MotionProvider";
 import Navbar from "@/components/layout/Navbar";
@@ -40,22 +41,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-ink focus:p-3 focus:text-fog"
-        >
-          Skip to content
-        </a>
+    <html
+  lang="en"
+  suppressHydrationWarning
+  className={`${display.variable} ${body.variable}`}
+>
+  <body>
+    <ThemeProvider>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-ink focus:p-3 focus:text-fog"
+      >
+        Skip to content
+      </a>
 
-        <MotionProvider>
-          <ScrollProgress />
-          <Navbar />
-          <main id="main">{children}</main>
-          <Footer />
-        </MotionProvider>
-      </body>
-    </html>
+      <MotionProvider>
+        <ScrollProgress />
+        <Navbar />
+        <main id="main">{children}</main>
+        <Footer />
+      </MotionProvider>
+    </ThemeProvider>
+  </body>
+</html>
   );
 }

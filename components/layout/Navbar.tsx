@@ -1,5 +1,5 @@
 "use client";
-
+import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -97,15 +97,19 @@ export default function Navbar() {
           </Link>
         </Magnetic>
 
-        <button
-          type="button"
-          className="grid h-10 w-10 place-items-center rounded-md border border-line md:hidden"
-          onClick={() => setOpen((o) => !o)}
-          aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex items-center gap-2">
+  <ThemeToggle />
+
+  <button
+    type="button"
+    className="grid h-10 w-10 place-items-center rounded-md border border-line md:hidden"
+    onClick={() => setOpen((o) => !o)}
+    aria-expanded={open}
+    aria-label={open ? "Close menu" : "Open menu"}
+  >
+    {open ? <X size={20} /> : <Menu size={20} />}
+  </button>
+</div>
       </nav>
 
       <AnimatePresence>

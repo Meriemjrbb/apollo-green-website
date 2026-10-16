@@ -1,28 +1,29 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#0D2B2E",
-          soft: "#3F5A5C",
-          deep: "#07191B",
+          DEFAULT: "rgb(var(--ink) / <alpha-value>)",
+          soft: "rgb(var(--ink-soft) / <alpha-value>)",
+          deep: "rgb(var(--ink-deep) / <alpha-value>)",
         },
         fog: {
-          DEFAULT: "#EEF3F1",
-          card: "#F9FBFA",
+          DEFAULT: "rgb(var(--fog) / <alpha-value>)",
+          card: "rgb(var(--fog-card) / <alpha-value>)",
         },
         amber: {
-          DEFAULT: "#F2A21B",
-          deep: "#B86F00",
+          DEFAULT: "rgb(var(--amber) / <alpha-value>)",
+          deep: "rgb(var(--amber-deep) / <alpha-value>)",
         },
         signal: {
-          DEFAULT: "#1F9D6B",
-          deep: "#136B48",
+          DEFAULT: "rgb(var(--signal) / <alpha-value>)",
+          deep: "rgb(var(--signal-deep) / <alpha-value>)",
         },
-        line: "#CBD8D4",
+        line: "rgb(var(--line) / <alpha-value>)",
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
