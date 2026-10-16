@@ -44,7 +44,7 @@ The website presents industrial and commercial energy management solutions, with
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/apollo-green-website.git
+git clone https://github.com/Meriemjrbb/apollo-green-website.git
 cd apollo-green-website
 ```
 
