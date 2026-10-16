@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AnimatePresence,
   motion,
@@ -19,7 +19,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
 
-  useEffect(() => setOpen(false), [pathname]);
+  
 
   const { scrollY } = useScroll();
 
@@ -45,6 +45,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
+          onClick={() => setOpen(false)}
           className="group flex items-center gap-2 font-display text-lg font-bold tracking-tight"
         >
           <motion.span
@@ -64,6 +65,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className="relative block rounded px-3 py-2 text-sm font-medium text-ink-soft transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-ink/40 after:transition-transform after:duration-300 hover:text-ink hover:after:scale-x-100 aria-[current=page]:text-ink"
                 >
@@ -128,11 +130,12 @@ export default function Navbar() {
                   }}
                 >
                   <Link
-                    href={item.href}
-                    className="block border-b border-line/60 py-3 font-medium"
-                  >
-                    {item.label}
-                  </Link>
+  href={item.href}
+  onClick={() => setOpen(false)}
+  className="block border-b border-line/60 py-3 font-medium"
+>
+  {item.label}
+</Link>
                 </motion.li>
               ))}
             </ul>
