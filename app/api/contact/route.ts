@@ -40,5 +40,6 @@ export async function POST(req: Request) {
     { status: 503 }
   );
 }
+
   return NextResponse.json({ ok: true });
 }
